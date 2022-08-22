@@ -1,0 +1,157 @@
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+  <div class="search-name">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on"
+      placeholder=" SEARCH  ">
+  </div>
+
+  <table class="table table-striped"  >
+
+
+
+    <thead>
+      <tr>
+        <th scope="col" >Nom
+          <i class="fa fa-filter" style="cursor: pointer" aria-hidden="true" (click)="filterNom = !filterNom"
+          ></i>
+          <input
+          (keyup)="filtrer()"
+          [(ngModel)]="nameFilter"
+          *ngIf="filterNom"
+          class="inputFilter"
+          type="text"
+        />
+        <i
+        ></i>
+
+          <mat-icon (click)="triNom()" style="cursor: pointer" > import_export</mat-icon>
+
+        </th>
+        <th scope="col" >
+          Population  <i class="fa fa-filter" style="cursor: pointer" aria-hidden="true" (click)="filterPopulation = !filterPopulation"
+          ></i>
+          <input
+          (keyup)="filtrer()"
+          [(ngModel)]="populationFilter"
+          *ngIf="filterPopulation"
+          class="inputFilter"
+          type="text"
+        />
+        <i
+        ></i>
+          <mat-icon (click)="triPop()" style="cursor: pointer"> import_export</mat-icon>
+        </th>
+        <th scope="col" >
+          Superficie (Km)
+          <i class="fa fa-filter" style="cursor: pointer" aria-hidden="true" (click)="filterSuperficie = !filterSuperficie"
+          ></i>
+          <input
+          (keyup)="filtrer()"
+          [(ngModel)]="superficieFilter"
+          *ngIf="filterSuperficie"
+          class="inputFilter"
+          type="text"/>
+          <mat-icon (click)="triSuper()" style="cursor: pointer"> import_export</mat-icon>
+        </th>
+        <th scope="col" style="cursor: pointer">Continent<i class="fa fa-filter" style="cursor: pointer" aria-hidden="true" (click)="filterContinent = !filterContinent"
+          ></i>
+          <input
+          (keyup)="filtrer()"
+          [(ngModel)]="continentFilter"
+          *ngIf="filterContinent"
+          class="inputFilter"
+          type="text"
+        /> <mat-icon (click)="triCont()" style="cursor: pointer"> import_export</mat-icon>
+      </th>
+        <th scope="col">Produit intérieur brut<i class="fa fa-filter" style="cursor: pointer" aria-hidden="true" (click)="filterProdBrut = !filterProdBrut"
+  ></i>
+  <input
+  (keyup)="filtrer()"
+  [(ngModel)]="prodBrutFilter"
+  *ngIf="filterProdBrut"
+  class="inputFilter"
+  type="text"
+/><mat-icon (click)="triProd()" style="cursor: pointer"> import_export</mat-icon>
+</th>
+        <th scope="col" >Image</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of listPays  | filter:searchText">
+        <td (click)="upData(x)" style="cursor: pointer">{{x.nom}}</td>
+        <td>{{x.population}}</td>
+        <td>{{x.superficie}}</td>
+        <td>{{x.contient}}</td>
+        <td>{{x.produit}}</td>
+        <td><img width="50px" [src]="x.image" alt=""></td>
+        <td>
+          <mat-icon data-toggle="modal" (click)="largeModal.show(); update(x)">update</mat-icon>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+<div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Modifier Pays</h4>
+
+        <button type="button" class="close" (click)="largeModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-style-2">
+          <div class="form-style-2-heading">Fournissez vos informations</div>
+          <form action="" method="post" [formGroup]="updateForm">
+            <label for="field1"><span>Nom </span><input type="text" class="input-field"
+                name="field1" value="" formControlName="nom" /></label>
+
+            <label for="field1"><span>Population </span><input type="number"
+                class="input-field" name="field1" value="" formControlName="population" /></label>
+
+            <label for="field1"><span>Superficie(km2) </span><input type="number"
+                class="input-field" name="field1" value="" formControlName="superficie" /></label>
+
+            <label for="field1"><span>Continent </span><input type="text"
+                class="input-field" name="field1" value="" formControlName="contient" /></label>
+
+            <label for="field1"><span>Produit </span><input type="text"
+                class="input-field" name="field1" value="" formControlName="produit" /></label>
+
+            <label for="field1"><span>Image </span><input type="file" class="input-field"
+                name="field1" value="" formControlName="image" /></label>
+
+
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="largeModal.hide()">Fermer</button>
+              <button type="button" class="btn btn-secondary" (click)="updatePays(pays)">Enregistrer</button>
+
+            </div>
+          </form>
+        </div>
+
+
+
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--******************************************************************************************************************-->
+
+
+<!--******************************************************************************************************************-->
+
+

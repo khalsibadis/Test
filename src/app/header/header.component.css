@@ -1,0 +1,221 @@
+#pl{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#pl button{
+  margin: 20px;
+
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #050801;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+a{
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 0;
+    color: #03e9f4;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+
+}
+a:hover{
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+a:nth-child(1){
+    filter: hue-rotate(270deg);
+}
+a:nth-child(2){
+    filter: hue-rotate(110deg);
+}
+a span{
+    position: absolute;
+    display: block;
+}
+a span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,#03e9f4);
+    animation: animate1 1s linear infinite;
+}
+@keyframes animate1{
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left: 100%;
+    }
+}
+a span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#03e9f4);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+@keyframes animate2{
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top: 100%;
+    }
+}
+a span:nth-child(3){
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.50s;
+}
+@keyframes animate3{
+    0%{
+        right: -100%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+
+
+a span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#03e9f4);
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+@keyframes animate4{
+    0%{
+        bottom: -100%;
+    }
+    50%,100%{
+        bottom: 100%;
+    }
+}
+
+
+
+
+
+.form-style-2{
+	max-width: 500px;
+	padding: 20px 12px 10px 20px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-2-heading{
+	font-weight: bold;
+	font-style: italic;
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 20px;
+	font-size: 15px;
+	padding-bottom: 3px;
+}
+.form-style-2 label{
+	display: block;
+	margin: 0px 0px 15px 0px;
+}
+.form-style-2 label > span{
+	width: 100px;
+	font-weight: bold;
+	float: left;
+	padding-top: 8px;
+	padding-right: 5px;
+}
+.form-style-2 span.required{
+	color:red;
+}
+.form-style-2 .tel-number-field{
+	width: 40px;
+	text-align: center;
+}
+.form-style-2 input.input-field, .form-style-2 .select-field{
+	width: 48%;
+}
+.form-style-2 input.input-field,
+.form-style-2 .tel-number-field,
+.form-style-2 .textarea-field,
+ .form-style-2 .select-field{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border: 1px solid #C2C2C2;
+	box-shadow: 1px 1px 4px #EBEBEB;
+	-moz-box-shadow: 1px 1px 4px #EBEBEB;
+	-webkit-box-shadow: 1px 1px 4px #EBEBEB;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 7px;
+	outline: none;
+}
+.form-style-2 .input-field:focus,
+.form-style-2 .tel-number-field:focus,
+.form-style-2 .textarea-field:focus,
+.form-style-2 .select-field:focus{
+	border: 1px solid #0C0;
+}
+.form-style-2 .textarea-field{
+	height:100px;
+	width: 55%;
+}
+.form-style-2 input[type=submit],
+.form-style-2 input[type=button]{
+	border: none;
+	padding: 8px 15px 8px 15px;
+	background: #FF8500;
+	color: #fff;
+	box-shadow: 1px 1px 4px #DADADA;
+	-moz-box-shadow: 1px 1px 4px #DADADA;
+	-webkit-box-shadow: 1px 1px 4px #DADADA;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}
+.form-style-2 input[type=submit]:hover,
+.form-style-2 input[type=button]:hover{
+	background: #EA7B00;
+	color: #fff;
+}
+
+
+
+
+
+
+
+

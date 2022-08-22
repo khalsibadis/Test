@@ -1,0 +1,47 @@
+<header class="container">
+  <h1 class="mb-1" >{{pays.nom}}</h1>
+  <div id="pl">
+    <button class="btn btn-primary" routerLink="" role="button">Gestion des pays</button>
+  </div>
+
+</header>
+
+
+
+<div class="container" id="pad">
+  <div class="row">
+    <button class="btn btn-primary">pays detail</button>
+  </div>
+  <div class="content-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card card-block card-stretch card-height blog-list">
+            <div class="card-body">
+              <div class="row align-items-center">
+
+                <div class="col-md-6">
+
+                  <h5><b> <i class="mb-2">Nom : {{pays.nom}}</i></b></h5>
+                  <h5><b> <i class="mb-2">Superficie  : {{pays.superficie}}</i></b></h5>
+                  <h5><b> <i class="mb-2">Continent : {{pays.contient}}</i></b></h5>
+                  <h5><b> <i class="mb-2">Population : {{pays.population}}</i></b></h5>
+                  <h5><b> <i class="mb-2">Produit intérieur Brut : {{pays.produit}}</i></b></h5></div>
+                  <div class="col-md-6">
+                    <div class="image-block">
+                      <img class="card-img-top" [src]="pays.image">
+                    </div>
+                  </div>
+
+                  <div class="blog-description p-2">
+
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
