@@ -2,22 +2,13 @@
   <h1 class="mb-1">Gestion des pays</h1>
   <div id="pl">
     <a href="#" (click)="largeModal.show()">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+
   Ajouter Pays</a>
   <a href="#" (click)="fileDownload()" >
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-  Export To CSV</a>
+
+  Exporter en CSV</a>
   <a href="#" (click)="updateTable()">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+
   Rechercher
   </a>
   </div>
@@ -358,7 +349,7 @@
                         <div *ngIf="produit.touched ">
                           <small *ngIf="produit?.errors?.required" class="text-danger" style="font-weight: bold">produit obligatoire<br></small>
                         </div>
-                      <label for="field1"><span>Image <span class="required">*</span></span><input type="file" class="input-field" (change)="onFileSelected($event)"
+                      <label for="field1"><span>Image <span class="required">*</span></span><input type="text" class="input-field" (change)="onFileSelected($event)"
                         name="field1" value="" formControlName="image" /></label>
 
 

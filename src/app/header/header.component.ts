@@ -19,10 +19,6 @@ export class HeaderComponent implements OnInit {
   addForm: FormGroup;
   list: any;
 
-  savePays() {
-    this.sharedService.nextPays(this.addForm.value);
-  }
-
   constructor(
     private fb: FormBuilder,
     private sharedService: SharedServiceService
@@ -38,6 +34,16 @@ export class HeaderComponent implements OnInit {
 
     this.addForm = this.fb.group(formControls);
   }
+
+
+  ngOnInit(): void {
+    console.log(this.addForm.value);
+    this.getList();
+  }
+  savePays() {
+    this.sharedService.nextPays(this.addForm.value);
+  }
+
 
   get nom() {
     return this.addForm.get('nom');
@@ -58,10 +64,6 @@ export class HeaderComponent implements OnInit {
     return this.addForm.get('image');
   }
 
-  ngOnInit(): void {
-    console.log(this.addForm.value);
-    this.getList();
-  }
 
   @ViewChild('largeModal') public largeModal: ModalDirective;
 

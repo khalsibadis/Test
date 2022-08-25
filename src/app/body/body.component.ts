@@ -8,7 +8,6 @@ import { ngxCsv } from 'ngx-csv/ngx-csv';
 import { Pays } from '../Model/pays';
 import { SharedServiceService } from '../service/shared-service.service';
 
-import { MatTableDataSource } from '@angular/material/table'
 
 @Component({
   selector: 'app-body',
@@ -67,10 +66,6 @@ export class BodyComponent implements OnInit {
   ngOnInit(): void {
     this.sharedService.sharedPays.subscribe((listPays: any) => {
       this.listPays = listPays;
-
-
-
-
     });
 
 
@@ -145,7 +140,7 @@ export class BodyComponent implements OnInit {
 
         },
         err=>{
-          console.log("te7cha")
+          console.log("erreur")
         }
       );
   }
@@ -186,7 +181,6 @@ export class BodyComponent implements OnInit {
     this.sharedService.getPaysList(this.nameFilter,this.populationFilter,this.continentFilter,this.superficieFilter,this.prodBrutFilter).subscribe(
       (listPays: any) =>
         this.listPays = listPays
-
     )
 
   }

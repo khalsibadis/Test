@@ -13,15 +13,25 @@ import { Pays } from '../Model/pays';
 export class SharedServiceService {
   listPays = [];
 
-  private listPaysS = new BehaviorSubject([...this.listPays]);
-  sharedPays = this.listPaysS.asObservable();
-
   constructor(private http: HttpClient) {
     this.getPaysList().subscribe((res: any) => {
       this.listPays = res;
       this.listPaysS.next([...this.listPays]);
     });
   }
+
+
+
+  ////////////////
+  private listPaysS = new BehaviorSubject([]);
+  sharedPays = this.listPaysS.asObservable();
+
+/////////////////////
+
+
+private PaysDetail = new BehaviorSubject({});
+sharedPaysDetail = this.PaysDetail.asObservable();
+
 ////////////mise a jour shared service SharedPays
   nextPays(newPays) {
     this.addPays({ id: this.listPays.length + 1, ...newPays }).subscribe(
@@ -29,8 +39,6 @@ export class SharedServiceService {
     );
   }
 
-  private PaysDetail = new BehaviorSubject({});
-  sharedPaysDetail = this.PaysDetail.asObservable();
 
   nextPaysDetail(PaysDetail) {
     this.PaysDetail.next(PaysDetail);
@@ -38,7 +46,6 @@ export class SharedServiceService {
   }
 
   addPays(newPays) {
-
     return this.http.post('http://localhost:3000/listPays', newPays);
   }
 
